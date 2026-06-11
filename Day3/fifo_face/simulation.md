@@ -26,11 +26,13 @@ The Face Module generates data every clock cycle, while the Output Module reads 
 
 ### Utilization Report
 
-![Utilization Report](images/utilization.png)
+<img width="587" height="323" alt="Screenshot 2026-06-11 212654" src="https://github.com/user-attachments/assets/39c683ce-ecf6-4ce8-9757-7fb76e92b3e1" />
+
 
 ### Device Floorplan
 
-![Floorplan](images/floorplan.png)
+<img width="1556" height="775" alt="Screenshot 2026-06-11 212754" src="https://github.com/user-attachments/assets/ed81cfe0-e71b-4829-bbd1-af7bfee3bbc1" />
+
 
 ## Conclusion
 
