@@ -1,32 +1,37 @@
-<img width="1600" height="900" alt="WhatsApp Image 2026-06-10 at 10 27 15 PM" src="https://github.com/user-attachments/assets/fcb9cef1-51a2-43b8-b1d2-cc52a30db18b" />
-# FIFO Simulation
+# Face Detection Data Buffering System
 
-## Objective
+## Description
 
-To verify the operation of a FIFO (First In First Out) memory using behavioral simulation in Vivado.
+This project implements a Face Detection Data Buffering System using a FIFO and FSM.
 
-## Simulation Results
+The Face Module generates data every clock cycle, while the Output Module reads data once every three clock cycles. A FIFO buffer is used between them to prevent data loss and maintain the correct data sequence.
 
-### Write Operation
+## Modules
 
-- Data values from 01 to 15 are written into the FIFO sequentially.
-- The write pointer increments after each write operation.
-- FIFO count increases as data is stored.
+- Face Module
+- FIFO
+- Output FSM
+- Top Module
+- Testbench
 
-### Read Operation
+## Resource Utilization
 
-- Data is read in the same order in which it was written.
-- The read pointer increments after each read operation.
-- FIFO count decreases as data is removed.
+| Resource | Used | Utilization |
+|-----------|------|------------|
+| Slice LUTs | 34 | 0.16% |
+| Slice Registers | 99 | 0.24% |
+| F7 Muxes | 8 | 0.05% |
 
-## Observations
+## Results
 
-- FIFO follows the First In First Out principle.
-- Data written first is read first.
-- Write and read pointers update correctly.
-- FIFO count accurately tracks the number of stored data elements.
-- No data corruption is observed during read and write operations.
+### Utilization Report
+
+![Utilization Report](images/utilization.png)
+
+### Device Floorplan
+
+![Floorplan](images/floorplan.png)
 
 ## Conclusion
 
-The FIFO was successfully simulated in Vivado. The waveform confirms correct write, read, pointer update, and data transfer operations according to FIFO behavior.
+The FIFO successfully buffers incoming data and prevents data loss caused by the speed mismatch between the Face Module and the Output Module.
