@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10.06.2026 21:28:25
+// Create Date: 11.06.2026 20:54:29
 // Design Name: 
-// Module Name: fsmmod
+// Module Name: mod_out
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,52 +20,33 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module output_fsm(
-input clk,
-input rst,
-output reg rdenb
+module mod_out(
+    input clk,
+    input rst,
+    input [7:0] d_in,
+    output reg [7:0] d_out
 );
 
-parameter S0=2'b00;
-parameter S1=2'b01;
-parameter S2=2'b10;
+reg [1:0] state;
 
-reg [1:0] ps,ns;
+parameter S0 = 2'd0,
+          S1 = 2'd1,
+          S2 = 2'd2;
 
-always @(posedge clk)
+always @(posedge clk or posedge rst)
 begin
-    if(rst)
-        ps <= S0;
+    if (rst)
+        state <= S0;
     else
-        ps <= ns;
+        state <= state + 1;  // cycles 0?1?2
 end
 
-always @(*)
+always @(posedge clk or posedge rst)
 begin
-    rdenb = 0;
-
-    case(ps)
-
-    S0:
-    begin
-        ns = S1;
-    end
-
-    S1:
-    begin
-        ns = S2;
-    end
-
-    S2:
-    begin
-        rdenb = 1;
-        ns = S0;
-    end
-
-    default:
-        ns = S0;
-
-    endcase
+    if (rst)
+        d_out <= 0;
+    else if (state == S2)
+        d_out <= d_in;   // output only at 3rd clock
 end
 
 endmodule
