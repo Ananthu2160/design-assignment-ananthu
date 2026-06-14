@@ -8,14 +8,16 @@ A FIFO (First In First Out) is a memory buffer used for temporary data storage w
 
 The waveform shows the write and read operations performed on the FIFO. Data values are written into the FIFO when `wr_en` is asserted and are read out in the same order when `rd_en` is asserted. The `full` and `empty` flags correctly indicate the status of the FIFO during operation.
 
-<img width="1920" height="1080" alt="Screenshot (97)" src="https://github.com/user-attachments/assets/45cdf22d-81e4-44a3-b770-5c0d9e99b52a" />
+<img width="1558" height="797" alt="image" src="https://github.com/user-attachments/assets/a95faa2c-61b6-408a-b1ff-c33e41fa63f5" />
+
 
 
 ## Console Output
 
 The console log displays the sequence of write and read operations along with the corresponding input data, output data, and FIFO status flags. The results confirm that the FIFO stores and retrieves data correctly while maintaining the First In First Out behavior.
 
-<img width="1920" height="1080" alt="Screenshot (98)" src="https://github.com/user-attachments/assets/83f1a633-dabf-40a5-bebd-2d8fcab79e61" />
+<img width="437" height="312" alt="Screenshot 2026-06-14 233147" src="https://github.com/user-attachments/assets/366de646-d77a-4e80-8847-55c99c4adf82" />
+
 
 
 ## Conclusion
