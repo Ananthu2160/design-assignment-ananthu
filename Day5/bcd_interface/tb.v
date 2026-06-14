@@ -1,34 +1,45 @@
-interface bcd_if;
-    logic [3:0] A;
-    logic [3:0] B;
-    logic cin;
-    logic [3:0] Sum;
-    logic cout;
-endinterface
-module tb;
-    bcd_if bif();
-    bcd_adder dut (
-        .A(bif.A),
-        .B(bif.B),
-        .cin(bif.cin),
-        .Sum(bif.Sum),
-        .cout(bif.cout)
-    );
-  initial begin
-        $dumpfile("dump.vcd"); 
-        $dumpvars(0, tb);      
-    end
-    initial begin
-        bif.A = 4'd0; bif.B = 4'd0; bif.cin = 1'b0;       
-        #10;
-        bif.A = 4'd4; bif.B = 4'd4; bif.cin = 1'b0;
-        #10;
-        bif.A = 4'd7; bif.B = 4'd6; bif.cin = 1'b0;
-        #10;
-        bif.A = 4'd9; bif.B = 4'd9; bif.cin = 1'b1;
-    end
-    initial begin
-        #40;
-        $finish();
-    end
+`timescale 1ns/1ps
+
+module bcd_adder_tb;
+
+reg [3:0] A;
+reg [3:0] B;
+reg Cin;
+
+wire [3:0] Sum;
+wire Cout;
+
+bcd_adder uut (
+    .A(A),
+    .B(B),
+    .Cin(Cin),
+    .Sum(Sum),
+    .Cout(Cout)
+);
+
+initial begin
+    $display("\nBCD Adder Verification");
+    $display("-------------------------------------");
+    $display("Time\tA\tB\tCin\tSum\tCout");
+    $display("-------------------------------------");
+
+    $monitor("%0t\t%d\t%d\t%b\t%d\t%b",
+              $time, A, B, Cin, Sum, Cout);
+end
+
+initial begin
+
+    A = 4'd0; B = 4'd0; Cin = 0; #10;
+    A = 4'd3; B = 4'd4; Cin = 0; #10;
+    A = 4'd5; B = 4'd4; Cin = 0; #10;
+    A = 4'd6; B = 4'd8; Cin = 0; #10;
+    A = 4'd9; B = 4'd9; Cin = 0; #10;
+    A = 4'd9; B = 4'd9; Cin = 1; #10;
+
+    $display("-------------------------------------");
+    $display("Simulation Completed");
+    $finish;
+
+end
+
 endmodule
