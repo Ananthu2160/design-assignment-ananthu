@@ -7,7 +7,7 @@ This repository contains RTL design implementations and SystemVerilog verificati
 ## 👤 Profile
 
 **Name:** Anantha Krishnan R
-**Branch:** Electronics and Communication Engineering
+<br>**Branch:** Electronics and Communication Engineering
 **Institution:** Muthoot Institute of Technology and Science (MITS)
 **Tools:** Vivado (XSim)
 **Languages:** Verilog HDL, SystemVerilog
