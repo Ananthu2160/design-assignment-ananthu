@@ -56,18 +56,6 @@ This repository contains RTL design implementations and SystemVerilog verificati
 
 ---
 
-## Skills Gained
-
-* RTL Design using Verilog
-* SystemVerilog OOP
-* Constrained Random Verification
-* Testbench Development
-* Driver, Monitor & Scoreboard Architecture
-* APB and AXI Protocol Verification
-* Waveform Analysis and Debugging
-
----
-
 ## Learning Outcome
 
 This portfolio demonstrates hands-on experience in digital design, verification methodologies, protocol validation, debugging, and simulation using Verilog and SystemVerilog.
